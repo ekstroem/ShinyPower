@@ -48,7 +48,7 @@ shinyServer(function(input, output) {
                     text(0, dnorm(0, mean=0, sd=spread)/2, paste("Sample 1\nmean\ndistribution"))
                     text(delta, dnorm(delta, mean=delta, sd=spread)/4, paste("Sample 2\nmean\ndistribution"))
 
-                    segments(0, -.03, delta, -.03, xpd = FALSE, lwd=4, col=makeTransparent("blue", alpha=80))
+                    segments(0, 0, delta, 0, xpd = FALSE, lwd=6, col=makeTransparent("blue", alpha=80))
 
                 })
 
@@ -78,7 +78,7 @@ shinyServer(function(input, output) {
       ul <- qnorm(1-alpha/2, mean=0, sd=1)
       ll <- qnorm(alpha/2, mean=0, sd=1)
 
-      segments(ll, -.02, ul, -.02, xpd = TRUE, lwd=4, col=makeTransparent("darkgreen", alpha=90))
+      segments(ll, -.02, ul, -.02, xpd = TRUE, lwd=6, col=makeTransparent("darkgreen", alpha=90))
       polygon(c(ll, ll, ul, ul), c(0, .5, .5, 0), col=makeTransparent("darkgreen", alpha=50), border=NA)
 
 
@@ -100,7 +100,7 @@ shinyServer(function(input, output) {
         polygon(c(ul, x.u, max(x.u)), c(0, dnorm(x.u, mean=ncp, sd=1), 0), col=redcol)
         polygon(c(min(x.l), x.l, ll), c(0, dnorm(x.l, mean=ncp, sd=1), 0), col=redcol)
 
-        segments(0, -.03, ncp, -.03, xpd = TRUE, lwd=4, col=makeTransparent("darkblue", alpha=80))
+        segments(0, -.03, ncp, -.03, xpd = TRUE, lwd=6, col=makeTransparent("darkblue", alpha=80))
 
 
       }
