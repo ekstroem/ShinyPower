@@ -45,8 +45,8 @@ shinyServer(function(input, output) {
                          xlab="Densities for mean estimates in the two populations", ylab="")
                     lines(x, dnorm(x, mean=delta, sd=spread), lwd=2)
 
-                    text(0, dnorm(0, mean=0, sd=spread)/2, paste("Pop 1\nmean\ndistribution"))
-                    text(delta, dnorm(delta, mean=delta, sd=spread)/4, paste("Pop 2\nmean\ndistribution"))
+                    text(0, dnorm(0, mean=0, sd=spread)/2, paste("Sample 1\nmean\ndistribution"))
+                    text(delta, dnorm(delta, mean=delta, sd=spread)/4, paste("Sample 2\nmean\ndistribution"))
 
                     segments(0, -.03, delta, -.03, xpd = FALSE, lwd=4, col=makeTransparent("blue", alpha=80))
 
