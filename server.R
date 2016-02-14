@@ -38,7 +38,7 @@ shinyServer(function(input, output) {
                     alpha <- input$alpha
                     spread <- input$spread/sqrt(n)
 
-                    x  <- seq(-4, 9, length = 400)
+                    x  <- seq(-3.5, 9, length = 400)
 
                     plot(x, dnorm(x, mean=0, sd=spread), type="l", lwd=2,
                          xlim=range(x), ylim=range(dnorm(x, mean=0, sd=spread)),

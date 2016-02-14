@@ -38,7 +38,7 @@ shinyUI(pageWithSidebar(
         plotOutput("dataPlot"),
 
         h3("Test statistic densities"),
-        helpText("The plot below shows the densities for the two sample means for comparison between two Gaussian populations with samples of same size and same standard deviation. The SMD blue line below shows the difference between the two population means."),
+        helpText("Illustration of the distribution of the test statistic under the null hypothesis and under the alternative hypothesis. The blue line is the non-centrality parameter for the distribution under the alternative hypothesis (and it depends on n, sd, and SMD)"),
         plotOutput("mpgPlot")
         )
     ))
