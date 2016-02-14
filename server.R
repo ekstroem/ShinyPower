@@ -94,10 +94,10 @@ shinyServer(function(input, output) {
 
         redcol <- makeTransparent("red", alpha=50)
 
-        polygon(c(ul, x.u, max(x.u)), c(0, dnorm(x.u, mean=ncp, sd=1) , 0), col=redcol)
-        polygon(c(min(x.l), x.l, ll), c(0, dnorm(x.l, mean=ncp, sd=1) , 0), col=redcol)
+        polygon(c(ul, x.u, max(x.u)), c(0, dnorm(x.u, mean=ncp, sd=1), 0), col=redcol)
+        polygon(c(min(x.l), x.l, ll), c(0, dnorm(x.l, mean=ncp, sd=1), 0), col=redcol)
 
-        segments(0, -.03, delta, -.03, xpd = TRUE, lwd=4, col=makeTransparent("darkblue", alpha=80))
+        segments(0, -.03, ncp, -.03, xpd = TRUE, lwd=4, col=makeTransparent("darkblue", alpha=80))
 
 
       }
