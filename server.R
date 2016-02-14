@@ -38,14 +38,17 @@ shinyServer(function(input, output) {
                     alpha <- input$alpha
                     spread <- input$spread/sqrt(n)
 
-                    x  <- seq(-4, 9, length = 200)
+                    x  <- seq(-4, 9, length = 400)
 
-                    plot(x, dnorm(x, mean=0, sd=spread), type="l",
+                    plot(x, dnorm(x, mean=0, sd=spread), type="l", lwd=2,
                          xlim=range(x), ylim=range(dnorm(x, mean=0, sd=spread)),
                          xlab="True difference in means between groups", ylab="")
-                    lines(x, dnorm(x, mean=delta, sd=spread))
+                    lines(x, dnorm(x, mean=delta, sd=spread), lwd=2)
 
-                    segments(0, -.03, delta, -.03, xpd = TRUE, lwd=6, col=makeTransparent("blue", alpha=80))
+                    text(0, dnorm(0, mean=0, sd=spread)/2, paste("Pop 1\nmean\ndistribution"))
+                    text(0, dnorm(delta, mean=delta, sd=spread)/2, paste("Pop 2\nmean\ndistribution"))
+
+                    segments(0, -.03, delta, -.03, xpd = TRUE, lwd=4, col=makeTransparent("blue", alpha=80))
 
                 })
 
