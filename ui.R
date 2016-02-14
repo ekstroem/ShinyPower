@@ -33,10 +33,12 @@ shinyUI(pageWithSidebar(
     mainPanel(
         h3(textOutput("caption")),
 
-        textOutput("teset"),
+        h4(verbatimTextOutput("Sample densities"))
+        verbatimTextOutput("The plot below shows the densities for the two sample means for comparison between two Gaussian populations with samples of same size and same standard deviation. The SMD blue line below shows the difference between the two population means."),
         plotOutput("dataPlot"),
 
-        textOutput("oiiouoiu"),
+        h4(verbatimTextOutput("Test statistic densities"))
+        verbatimTextOutput("The plot below shows the densities for the two sample means for comparison between two Gaussian populations with samples of same size and same standard deviation. The SMD blue line below shows the difference between the two population means."),
         plotOutput("mpgPlot")
         )
     ))
