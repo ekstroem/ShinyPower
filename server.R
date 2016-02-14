@@ -54,9 +54,11 @@ shinyServer(function(input, output) {
   output$mpgPlot <- renderPlot({
 
     par(mar=c(4,4,0,0)+.1, cex=1.4)
-      #
+
+      n <- input$n
       delta <- input$delta
       alpha <- input$alpha
+      spread <- input$spread
 
       x  <- seq(-4, 9, length = 200)
 
@@ -79,10 +81,12 @@ shinyServer(function(input, output) {
 
       # Draw the range that is not rejected
 
-      # Draw the alternative distribution
+                                        # Draw the alternative distribution
+
+      ncp <- sqrt(n/2)*delta/spread
 
       if (input$plotaltdist==TRUE) {
-        lines(x, dnorm(x, mean=delta, sd=1), lwd=3)
+        lines(x, dnorm(x, mean=ncp, sd=1), lwd=3)
 
         # Colour the area under the alternative distribution
         x.u <- seq(ul, max(x), length=200)
@@ -90,10 +94,10 @@ shinyServer(function(input, output) {
 
         redcol <- makeTransparent("red", alpha=50)
 
-        polygon(c(ul, x.u, max(x.u)), c(0, dnorm(x.u, mean=delta, sd=1) , 0), col=redcol)
-        polygon(c(min(x.l), x.l, ll), c(0, dnorm(x.l, mean=delta, sd=1) , 0), col=redcol)
+        polygon(c(ul, x.u, max(x.u)), c(0, dnorm(x.u, mean=ncp, sd=1) , 0), col=redcol)
+        polygon(c(min(x.l), x.l, ll), c(0, dnorm(x.l, mean=ncp, sd=1) , 0), col=redcol)
 
-        segments(0, -.03, delta, -.03, xpd = TRUE, lwd=4, col=makeTransparent("blue", alpha=80))
+        segments(0, -.03, delta, -.03, xpd = TRUE, lwd=4, col=makeTransparent("darkblue", alpha=80))
 
 
       }
@@ -107,7 +111,7 @@ shinyServer(function(input, output) {
 
 
       # Add text
-     text(7, .3, paste("Power: ", round(pnorm(ll, mean=delta, sd=1) + 1-pnorm(ul, mean=delta, sd=1), 3)))
+     text(7, .3, paste("Power: ", round(pnorm(ll, mean=ncp, sd=1) + 1-pnorm(ul, mean=ncp, sd=1), 3)))
     #boxplot(as.formula(formulaText()),
     #        data = mpgData,
     #        outline = input$outliers)
