@@ -19,7 +19,7 @@ shinyUI(pageWithSidebar(
                   min = 10, max = 200, value = c(50), step= 1),
 
       sliderInput("spread", "sd (in each group):",
-                  min = 1, max = 50, value = c(5), step= 1),
+                  min = 1, max = 20, value = c(3), step= 1),
 
       sliderInput("delta", "SMD:",
                   min = 0, max = 5, value = c(1), step= 0.1),

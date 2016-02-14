@@ -45,7 +45,7 @@ shinyServer(function(input, output) {
                          xlab="True difference in means between groups", ylab="")
                     lines(x, dnorm(x, mean=delta, sd=spread))
 
-
+                    segments(0, -.03, delta, -.03, xpd = TRUE, lwd=6, col=makeTransparent("blue", alpha=80))
 
                 })
 
@@ -75,7 +75,6 @@ shinyServer(function(input, output) {
 
       segments(ll, -.02, ul, -.02, xpd = TRUE, lwd=4, col=makeTransparent("darkgreen", alpha=90))
       polygon(c(ll, ll, ul, ul), c(0, .5, .5, 0), col=makeTransparent("darkgreen", alpha=50), border=NA)
-
 
 
       # Draw the range that is not rejected
