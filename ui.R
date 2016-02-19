@@ -13,7 +13,7 @@ shinyUI(pageWithSidebar(
       checkboxInput("plotnulldist", "Plot Null distribution density", TRUE),
       checkboxInput("plotaltdist", "Plot alternative distribution density", TRUE),
 
-      checkboxInput("typeIerr", "Mark type I error", FALSE),
+#      checkboxInput("typeIerr", "Mark type I error", FALSE),
 
       sliderInput("n", "n (in each group):",
                   min = 10, max = 200, value = c(50), step= 1),

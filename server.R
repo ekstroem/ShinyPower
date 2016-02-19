@@ -82,9 +82,9 @@ shinyServer(function(input, output) {
       polygon(c(ll, ll, ul, ul), c(0, .5, .5, 0), col=makeTransparent("darkgreen", alpha=50), border=NA)
 
 
-      # Draw the range that is not rejected
+      ## Draw the range that is not rejected
 
-                                        # Draw the alternative distribution
+      ## Draw the alternative distribution
 
       ncp <- sqrt(n/2)*delta/spread
 
@@ -105,10 +105,10 @@ shinyServer(function(input, output) {
 
       }
 
-  if (input$typeIerr==TRUE) {
-    tmpx <- c(min(x), seq(min(x), ll, length=100), ll)
-    polygon(c(min(x), tmpx, ll), c(0, dnorm(tmpx, mean=0, sd=1), 0), density=45)
-  }
+#      if (input$typeIerr==TRUE) {
+#          tmpx <- c(min(x), seq(min(x), ll, length=100), ll)
+#          polygon(c(min(x), tmpx, ll), c(0, dnorm(tmpx, mean=0, sd=1), 0), density=45)
+#      }
 
 
 
